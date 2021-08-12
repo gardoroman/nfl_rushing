@@ -1,0 +1,70 @@
+<h2><%= @title %></h2>
+
+<%= f = form_for @changeset, "#",
+  id: "stat-form",
+  phx_target: @myself,
+  phx_change: "validate",
+  phx_submit: "save" %>
+
+  <%= label f, :player %>
+  <%= text_input f, :player %>
+  <%= error_tag f, :player %>
+
+  <%= label f, :team %>
+  <%= text_input f, :team %>
+  <%= error_tag f, :team %>
+
+  <%= label f, :pos %>
+  <%= text_input f, :pos %>
+  <%= error_tag f, :pos %>
+
+  <%= label f, :att_g %>
+  <%= number_input f, :att_g, step: "any" %>
+  <%= error_tag f, :att_g %>
+
+  <%= label f, :att %>
+  <%= number_input f, :att, step: "any" %>
+  <%= error_tag f, :att %>
+
+  <%= label f, :yds %>
+  <%= number_input f, :yds, step: "any" %>
+  <%= error_tag f, :yds %>
+
+  <%= label f, :avg %>
+  <%= number_input f, :avg, step: "any" %>
+  <%= error_tag f, :avg %>
+
+  <%= label f, :yds_g %>
+  <%= number_input f, :yds_g, step: "any" %>
+  <%= error_tag f, :yds_g %>
+
+  <%= label f, :td %>
+  <%= number_input f, :td, step: "any" %>
+  <%= error_tag f, :td %>
+
+  <%= label f, :lng %>
+  <%= number_input f, :lng, step: "any" %>
+  <%= error_tag f, :lng %>
+
+  <%= label f, :first %>
+  <%= number_input f, :first, step: "any" %>
+  <%= error_tag f, :first %>
+
+  <%= label f, :first_pct %>
+  <%= number_input f, :first_pct, step: "any" %>
+  <%= error_tag f, :first_pct %>
+
+  <%= label f, :twenty_plus %>
+  <%= number_input f, :twenty_plus, step: "any" %>
+  <%= error_tag f, :twenty_plus %>
+
+  <%= label f, :forty_plus %>
+  <%= number_input f, :forty_plus, step: "any" %>
+  <%= error_tag f, :forty_plus %>
+
+  <%= label f, :fum %>
+  <%= number_input f, :fum, step: "any" %>
+  <%= error_tag f, :fum %>
+
+  <%= submit "Save", phx_disable_with: "Saving..." %>
+</form>

@@ -1,0 +1,63 @@
+<h1>Listing Stats</h1>
+
+<%= if @live_action in [:new, :edit] do %>
+  <%= live_modal @socket, NflRushingWeb.StatLive.FormComponent,
+    id: @stat.id || :new,
+    title: @page_title,
+    action: @live_action,
+    stat: @stat,
+    return_to: Routes.stat_index_path(@socket, :index) %>
+<% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Player</th>
+      <th>Team</th>
+      <th>Pos</th>
+      <th>Att g</th>
+      <th>Att</th>
+      <th>Yds</th>
+      <th>Avg</th>
+      <th>Yds g</th>
+      <th>Td</th>
+      <th>Lng</th>
+      <th>First</th>
+      <th>First pct</th>
+      <th>Twenty plus</th>
+      <th>Forty plus</th>
+      <th>Fum</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody id="stats">
+    <%= for stat <- @stats do %>
+      <tr id="stat-<%= stat.id %>">
+        <td><%= stat.player %></td>
+        <td><%= stat.team %></td>
+        <td><%= stat.pos %></td>
+        <td><%= stat.att_g %></td>
+        <td><%= stat.att %></td>
+        <td><%= stat.yds %></td>
+        <td><%= stat.avg %></td>
+        <td><%= stat.yds_g %></td>
+        <td><%= stat.td %></td>
+        <td><%= stat.lng %></td>
+        <td><%= stat.first %></td>
+        <td><%= stat.first_pct %></td>
+        <td><%= stat.twenty_plus %></td>
+        <td><%= stat.forty_plus %></td>
+        <td><%= stat.fum %></td>
+
+        <td>
+          <span><%= live_redirect "Show", to: Routes.stat_show_path(@socket, :show, stat) %></span>
+          <span><%= live_patch "Edit", to: Routes.stat_index_path(@socket, :edit, stat) %></span>
+          <span><%= link "Delete", to: "#", phx_click: "delete", phx_value_id: stat.id, data: [confirm: "Are you sure?"] %></span>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<span><%= live_patch "New Stat", to: Routes.stat_index_path(@socket, :new) %></span>

@@ -1,0 +1,92 @@
+<h1>Show Stat</h1>
+
+<%= if @live_action in [:edit] do %>
+  <%= live_modal @socket, NflRushingWeb.StatLive.FormComponent,
+    id: @stat.id,
+    title: @page_title,
+    action: @live_action,
+    stat: @stat,
+    return_to: Routes.stat_show_path(@socket, :show, @stat) %>
+<% end %>
+
+<ul>
+
+  <li>
+    <strong>Player:</strong>
+    <%= @stat.player %>
+  </li>
+
+  <li>
+    <strong>Team:</strong>
+    <%= @stat.team %>
+  </li>
+
+  <li>
+    <strong>Pos:</strong>
+    <%= @stat.pos %>
+  </li>
+
+  <li>
+    <strong>Att g:</strong>
+    <%= @stat.att_g %>
+  </li>
+
+  <li>
+    <strong>Att:</strong>
+    <%= @stat.att %>
+  </li>
+
+  <li>
+    <strong>Yds:</strong>
+    <%= @stat.yds %>
+  </li>
+
+  <li>
+    <strong>Avg:</strong>
+    <%= @stat.avg %>
+  </li>
+
+  <li>
+    <strong>Yds g:</strong>
+    <%= @stat.yds_g %>
+  </li>
+
+  <li>
+    <strong>Td:</strong>
+    <%= @stat.td %>
+  </li>
+
+  <li>
+    <strong>Lng:</strong>
+    <%= @stat.lng %>
+  </li>
+
+  <li>
+    <strong>First:</strong>
+    <%= @stat.first %>
+  </li>
+
+  <li>
+    <strong>First pct:</strong>
+    <%= @stat.first_pct %>
+  </li>
+
+  <li>
+    <strong>Twenty plus:</strong>
+    <%= @stat.twenty_plus %>
+  </li>
+
+  <li>
+    <strong>Forty plus:</strong>
+    <%= @stat.forty_plus %>
+  </li>
+
+  <li>
+    <strong>Fum:</strong>
+    <%= @stat.fum %>
+  </li>
+
+</ul>
+
+<span><%= live_patch "Edit", to: Routes.stat_show_path(@socket, :edit, @stat), class: "button" %></span>
+<span><%= live_redirect "Back", to: Routes.stat_index_path(@socket, :index) %></span>

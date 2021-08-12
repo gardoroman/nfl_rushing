@@ -18,6 +18,12 @@ defmodule NflRushingWeb.Router do
     pipe_through :browser
 
     live "/", PageLive, :index
+    live "/stats", StatLive.Index, :index
+    live "/stats/new", StatLive.Index, :new
+    live "/stats/:id/edit", StatLive.Index, :edit
+
+    live "/stats/:id", StatLive.Show, :show
+    live "/stats/:id/show/edit", StatLive.Show, :edit
   end
 
   # Other scopes may use custom stacks.
