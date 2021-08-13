@@ -3,21 +3,21 @@ defmodule NflRushing.Rushings.Stat do
   import Ecto.Changeset
 
   schema "stats" do
-    field :att, :float
-    field :att_g, :float
-    field :avg, :float
-    field :first, :float
-    field :first_pct, :float
-    field :forty_plus, :float
-    field :fum, :float
-    field :lng, :float
+    field :att, :string
+    field :att_g, :string
+    field :avg, :string
+    field :first, :string
+    field :first_pct, :string
+    field :forty_plus, :string
+    field :fum, :string
+    field :lng, :string
     field :player, :string
     field :pos, :string
-    field :td, :float
+    field :td, :string
     field :team, :string
-    field :twenty_plus, :float
-    field :yds, :float
-    field :yds_g, :float
+    field :twenty_plus, :string
+    field :yds, :string
+    field :yds_g, :string
 
     timestamps()
   end
