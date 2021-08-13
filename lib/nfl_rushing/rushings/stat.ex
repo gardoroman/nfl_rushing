@@ -3,21 +3,22 @@ defmodule NflRushing.Rushings.Stat do
   import Ecto.Changeset
 
   schema "stats" do
-    field :att, :string
-    field :att_g, :string
-    field :avg, :string
-    field :first, :string
-    field :first_pct, :string
-    field :forty_plus, :string
-    field :fum, :string
-    field :lng, :string
+    field :att, :float
+    field :att_g, :float
+    field :avg, :float
+    field :first, :float
+    field :first_pct, :float
+    field :forty_plus, :float
+    field :fum, :float
+    field :lng, :float
+    field :lng_td, :boolean
     field :player, :string
     field :pos, :string
-    field :td, :string
+    field :td, :float
     field :team, :string
-    field :twenty_plus, :string
-    field :yds, :string
-    field :yds_g, :string
+    field :twenty_plus, :float
+    field :yds, :float
+    field :yds_g, :float
 
     timestamps()
   end
@@ -25,7 +26,7 @@ defmodule NflRushing.Rushings.Stat do
   @doc false
   def changeset(stat, attrs) do
     stat
-    |> cast(attrs, [:player, :team, :pos, :att, :att_g, :yds, :avg, :yds_g, :td, :lng, :first, :first_pct, :twenty_plus, :forty_plus, :fum])
+    |> cast(attrs, [:player, :team, :pos, :att, :att_g, :yds, :avg, :yds_g, :td, :lng, :lng_td, :first, :first_pct, :twenty_plus, :forty_plus, :fum])
     |> validate_required([:player, :team, :pos, :att, :att_g, :yds, :avg, :yds_g, :td, :lng, :first, :first_pct, :twenty_plus, :forty_plus, :fum])
   end
 end

@@ -24,34 +24,47 @@ defmodule NflRushing.Seeds do
     #----------------------------------------------------------
     def load_record(rec) do
         fields = map_fields()
-        stat_record = Enum.reduce(rec, %{}, fn {k, v}, acc -> 
-            col_name = fields[k]
-            Map.put(acc, col_name, to_string(v))
+        stat_record = Enum.reduce(rec, %{}, fn {k, v}, acc ->
+            {col_name, info} = fields[k]
+            {value, touchdown} = update_value(info, v)
+
+            if k == "Lng" and touchdown == "T" do
+                acc
+                |> Map.put(:lng_td, true)
+                |> Map.put(col_name, value)
+            else
+                Map.put(acc, col_name, value)
+            end
         end)
         changeset = Stat.changeset(%Stat{}, stat_record)
 
         Repo.insert!(changeset)
     end
-    
-    
+
+    def update_value("string", value), do: {value, ""}
+    def update_value("float", value) do
+        value 
+        |> to_string()
+        |> Float.parse()
+    end    
 
     def map_fields do
         %{
-            "Player" => :player,
-            "Team" => :team,
-            "Pos" => :pos,
-            "Att" => :att,
-            "Att/G" => :att_g,
-            "Yds" => :yds,
-            "Avg" => :avg,
-            "Yds/G" => :yds_g,
-            "TD" => :td,
-            "Lng" => :lng,
-            "1st" => :first,
-            "1st%" => :first_pct,
-            "20+" => :twenty_plus,
-            "40+" => :forty_plus,
-            "FUM" => :fum
+            "Player" => {:player, "string"},
+            "Team" => {:team, "string"},
+            "Pos" => {:pos, "string"},
+            "Att" => {:att, "float"},
+            "Att/G" => {:att_g, "float"},
+            "Yds" => {:yds, "float"},
+            "Avg" => {:avg, "float"},
+            "Yds/G" => {:yds_g, "float"},
+            "TD" => {:td, "float"},
+            "Lng" => {:lng, "float"},
+            "1st" => {:first, "float"},
+            "1st%" => {:first_pct, "float"},
+            "20+" => {:twenty_plus, "float"},
+            "40+" => {:forty_plus, "float"},
+            "FUM" => {:fum, "float"}
           }
     end
 end
