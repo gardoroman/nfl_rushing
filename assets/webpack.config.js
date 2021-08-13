@@ -53,5 +53,5 @@ module.exports = (env, options) => {
       })
     ]
     // .concat(devMode ? [new HardSourceWebpackPlugin()] : [])
-  }
+  };
 };
