@@ -6,8 +6,8 @@ defmodule NflRushing.Repo.Migrations.CreateStats do
       add :player, :string, null: false
       add :team, :string, null: false
       add :pos, :string, null: false
-      add :att_g, :string, default: "0"
       add :att, :string, default: "0"
+      add :att_g, :string, default: "0"
       add :yds, :string, default: "0"
       add :avg, :string, default: "0"
       add :yds_g, :string, default: "0"

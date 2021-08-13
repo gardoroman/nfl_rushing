@@ -25,7 +25,7 @@ defmodule NflRushing.Rushings.Stat do
   @doc false
   def changeset(stat, attrs) do
     stat
-    |> cast(attrs, [:player, :team, :pos, :att_g, :att, :yds, :avg, :yds_g, :td, :lng, :first, :first_pct, :twenty_plus, :forty_plus, :fum])
-    |> validate_required([:player, :team, :pos, :att_g, :att, :yds, :avg, :yds_g, :td, :lng, :first, :first_pct, :twenty_plus, :forty_plus, :fum])
+    |> cast(attrs, [:player, :team, :pos, :att, :att_g, :yds, :avg, :yds_g, :td, :lng, :first, :first_pct, :twenty_plus, :forty_plus, :fum])
+    |> validate_required([:player, :team, :pos, :att, :att_g, :yds, :avg, :yds_g, :td, :lng, :first, :first_pct, :twenty_plus, :forty_plus, :fum])
   end
 end
