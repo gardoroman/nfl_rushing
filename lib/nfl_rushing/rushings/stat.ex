@@ -10,8 +10,8 @@ defmodule NflRushing.Rushings.Stat do
     field :first_pct, :float
     field :forty_plus, :float
     field :fum, :float
-    field :lng, :float
-    field :lng_td, :boolean
+    field :lng, :string
+    field :lng_num, :float
     field :player, :string
     field :pos, :string
     field :td, :float
@@ -26,7 +26,7 @@ defmodule NflRushing.Rushings.Stat do
   @doc false
   def changeset(stat, attrs) do
     stat
-    |> cast(attrs, [:player, :team, :pos, :att, :att_g, :yds, :avg, :yds_g, :td, :lng, :lng_td, :first, :first_pct, :twenty_plus, :forty_plus, :fum])
+    |> cast(attrs, [:player, :team, :pos, :att, :att_g, :yds, :avg, :yds_g, :td, :lng, :lng_num, :first, :first_pct, :twenty_plus, :forty_plus, :fum])
     |> validate_required([:player, :team, :pos, :att, :att_g, :yds, :avg, :yds_g, :td, :lng, :first, :first_pct, :twenty_plus, :forty_plus, :fum])
   end
 end

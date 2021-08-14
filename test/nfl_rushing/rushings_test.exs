@@ -6,8 +6,8 @@ defmodule NflRushing.RushingsTest do
   describe "stats" do
     alias NflRushing.Rushings.Stat
 
-    @valid_attrs %{att: 120.5, att_g: 120.5, avg: 120.5, first: 120.5, first_pct: 120.5, forty_plus: 120.5, fum: 120.5, lng: 120.5, lng_td: false, player: "some player", pos: "some pos", td: 120.5, team: "some team", twenty_plus: 120.5, yds: 120.5, yds_g: 120.5}
-    @update_attrs %{att: 456.7, att_g: 456.7, avg: 456.7, first: 456.7, first_pct: 456.7, forty_plus: 456.7, fum: 456.7, lng: 456.7, lng_td: false, player: "some updated player", pos: "some updated pos", td: 456.7, team: "some updated team", twenty_plus: 456.7, yds: 456.7, yds_g: 456.7}
+    @valid_attrs %{att: 120.5, att_g: 120.5, avg: 120.5, first: 120.5, first_pct: 120.5, forty_plus: 120.5, fum: 120.5, lng: "120.5", lng_num: 120.5, player: "some player", pos: "some pos", td: 120.5, team: "some team", twenty_plus: 120.5, yds: 120.5, yds_g: 120.5}
+    @update_attrs %{att: 456.7, att_g: 456.7, avg: 456.7, first: 456.7, first_pct: 456.7, forty_plus: 456.7, fum: 456.7, lng: "456.7", lng_num: 456.7, player: "some updated player", pos: "some updated pos", td: 456.7, team: "some updated team", twenty_plus: 456.7, yds: 456.7, yds_g: 456.7}
     @invalid_attrs %{att: nil, att_g: nil, avg: nil, first: nil, first_pct: nil, forty_plus: nil, fum: nil, lng: nil, player: nil, pos: nil, td: nil, team: nil, twenty_plus: nil, yds: nil, yds_g: nil}
 
     def stat_fixture(attrs \\ %{}) do
@@ -38,8 +38,8 @@ defmodule NflRushing.RushingsTest do
       assert stat.first_pct == 120.5
       assert stat.forty_plus == 120.5
       assert stat.fum == 120.5
-      assert stat.lng == 120.5
-      assert stat.lng_td == false
+      assert stat.lng == "120.5"
+      assert stat.lng_num == 120.5
       assert stat.player == "some player"
       assert stat.pos == "some pos"
       assert stat.td == 120.5
@@ -63,7 +63,8 @@ defmodule NflRushing.RushingsTest do
       assert stat.first_pct == 456.7
       assert stat.forty_plus == 456.7
       assert stat.fum == 456.7
-      assert stat.lng == 456.7
+      assert stat.lng == "456.7"
+      assert stat.lng_num == 456.7
       assert stat.player == "some updated player"
       assert stat.pos == "some updated pos"
       assert stat.td == 456.7

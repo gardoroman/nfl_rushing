@@ -96,7 +96,7 @@ defmodule NflRushingWeb.StatLive.Index do
   end
 
   defp get_sort_by_field("yds"), do: &(&1.yds)
-  defp get_sort_by_field("lng"), do: &(&1.lng)
+  defp get_sort_by_field("lng"), do: &(&1.lng_num)
   defp get_sort_by_field("td"), do: &(&1.td)
 
   defp get_sort_order(current, current, :asc), do: :desc

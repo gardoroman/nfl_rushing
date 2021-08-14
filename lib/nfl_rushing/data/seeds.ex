@@ -26,12 +26,12 @@ defmodule NflRushing.Seeds do
         fields = map_fields()
         stat_record = Enum.reduce(rec, %{}, fn {k, v}, acc ->
             {col_name, info} = fields[k]
-            {value, touchdown} = update_value(info, v)
+            {value, _} = update_value(info, v)
 
-            if k == "Lng" and touchdown == "T" do
+            if k == "Lng" do
                 acc
-                |> Map.put(:lng_td, true)
-                |> Map.put(col_name, value)
+                |> Map.put(:lng_num, value)
+                |> Map.put(col_name, to_string(v))
             else
                 Map.put(acc, col_name, value)
             end
