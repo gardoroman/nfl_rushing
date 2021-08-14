@@ -1,59 +1,66 @@
-<h1>NFL Rushing Stats</h1>
+<!--  -->
+<div class="">
+  <div class="mb-8  mx-auto w-10/12 text-white">
+    <div class="flex flex-col md:flex-row">
+      <form class="text-2xl mr-4 pt-4" phx-change="filter-by-player">
+        <label >Filter By Player:</label>
+        <select name="player">
+            <option class="text-green" selected value="reset">All Players</option>
+            <%= for player <- @players do %>
+                <option value="<%= player %>">
+                <%= player %>
+                </option>
+            <% end %>
+        </select>
+      </form>
 
-<form phx-change="filter-by-player">
-  <label class="">Filter:</label>
-  <select name="player">
-      <option selected value="reset">All Players</option>
-      <%= for player <- @players do %>
-          <option value="<%= player %>">
-          <%= player %>
-          </option>
-      <% end %>
-  </select>
-</form>
-
-<button id="download-btn" phx-hook="DownloadCSV">Download</button>
-
-<table id="stats-table">
-  <thead>
-    <tr>
-      <th>Player</th>
-      <th>Team</th>
-      <th>Pos</th>
-      <th>Att</th>
-      <th>Att/G</th>
-      <th phx-click="order-by" phx-value-field="yds">Yds</th>
-      <th>Avg</th>
-      <th>Yds/G</th>
-      <th phx-click="order-by" phx-value-field="td">TD</th>
-      <th phx-click="order-by" phx-value-field="lng">Lng</th>
-      <th>1st</th>
-      <th>1st%</th>
-      <th>20+</th>
-      <th>40+</th>
-      <th>FUM</th>
-
-    </tr>
-  </thead>
-  <tbody id="stats">
-    <%= for stat <- @stats do %>
-      <tr id="stat-<%= stat.id %>">
-        <td><%= stat.player %></td>
-        <td><%= stat.team %></td>
-        <td><%= stat.pos %></td>
-        <td><%= stat.att %></td>
-        <td><%= stat.att_g %></td>
-        <td><%= stat.yds %></td>
-        <td><%= stat.avg %></td>
-        <td><%= stat.yds_g %></td>
-        <td><%= stat.td %></td>
-        <td><%= stat.lng %></td>
-        <td><%= stat.first %></td>
-        <td><%= stat.first_pct %></td>
-        <td><%= stat.twenty_plus %></td>
-        <td><%= stat.forty_plus %></td>
-        <td><%= stat.fum %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <button id="download-btn" phx-hook="DownloadCSV" class="p-4 border border-pink-700 rounded-lg">Download</button>
+    </div>
+  </div>
+  <div>
+    <table  id="stats-table" class=" mx-auto w-10/12" >
+      <thead>
+        <tr class="text-gray-200 bg-gray-800 text-center text-xl">
+          <th class="border border-blue-500">Player</th>
+          <th class="border border-blue-500">Team</th>
+          <th class="border border-blue-500">Pos</th>
+          <th class="border border-blue-500">Att</th>
+          <th class="border border-blue-500">Att/G</th>
+          <th class="border border-blue-500" phx-click="order-by" phx-value-field="yds">Yds</th>
+          <th class="border border-blue-500">Avg</th>
+          <th class="border border-blue-500">Yds/G</th>
+          <th class="border border-blue-500" phx-click="order-by" phx-value-field="td">TD</th>
+          <th class="border border-blue-500" phx-click="order-by" phx-value-field="lng">Lng</th>
+          <th class="border border-blue-500">1st</th>
+          <th class="border border-blue-500">1st%</th>
+          <th class="border border-blue-500">20+</th>
+          <th class="border border-blue-500">40+</th>
+          <th class="border border-blue-500">FUM</th>
+        </tr>
+      </thead>
+      <tbody id="stats">
+        <%= for stat <- @stats do %>
+          <tr class="text-center text-lg text-gray-100 bg-gray-900" id="stat-<%= stat.id %>">
+            <td class="border border-blue-900"><%= stat.player %></td>
+            <td class="border border-blue-900"><%= stat.team %></td>
+            <td class="border border-blue-900"><%= stat.pos %></td>
+            <td class="border border-blue-900"><%= stat.att %></td>
+            <td class="border border-blue-900"><%= stat.att_g %></td>
+            <td class="border border-blue-900"><%= stat.yds %></td>
+            <td class="border border-blue-900"><%= stat.avg %></td>
+            <td class="border border-blue-900"><%= stat.yds_g %></td>
+            <td class="border border-blue-900"><%= stat.td %></td>
+            <td class="border border-blue-900"><%= stat.lng %></td>
+            <td class="border border-blue-900"><%= stat.first %></td>
+            <td class="border border-blue-900"><%= stat.first_pct %></td>
+            <td class="border border-blue-900"><%= stat.twenty_plus %></td>
+            <td class="border border-blue-900"><%= stat.forty_plus %></td>
+            <td class="border border-blue-900"><%= stat.fum %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+  <!--
+-->
