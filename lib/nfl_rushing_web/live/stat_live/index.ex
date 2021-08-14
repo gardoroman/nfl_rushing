@@ -28,6 +28,15 @@ defmodule NflRushingWeb.StatLive.Index do
     {:noreply, updated_socket}
   end
 
+  def handle_event("filter-by-player", %{"player" => player}, socket) do
+    stats = 
+      list_stats()
+      |> filter_stats_by_player(player)
+    {
+      :noreply, 
+      assign(socket, :stats, stats)
+    }
+  end
 
   # defp apply_action(socket, :edit, %{"id" => id}) do
   #   socket
@@ -93,4 +102,10 @@ defmodule NflRushingWeb.StatLive.Index do
   defp get_sort_order(current, current, :asc), do: :desc
   defp get_sort_order(current, current, :desc), do: :asc
   defp get_sort_order(_, _, _), do: :asc
+
+  defp filter_stats_by_player(stats, "reset"), do: stats
+  defp filter_stats_by_player(stats, player) do
+    stats
+    |> Enum.filter(&(&1.player == player))
+  end
 end

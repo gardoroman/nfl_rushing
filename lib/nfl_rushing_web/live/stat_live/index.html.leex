@@ -1,6 +1,20 @@
 <h1>NFL Rushing Stats</h1>
 
 
+
+
+<form phx-change="filter-by-player">
+  <label class="">Filter:</label>
+  <select name="player">
+      <option selected value="reset">All Players</option>
+      <%= for player <- @players do %>
+          <option value="<%= player %>">
+          <%= player %>
+          </option>
+      <% end %>
+  </select>
+</form>
+
 <table>
   <thead>
     <tr>
