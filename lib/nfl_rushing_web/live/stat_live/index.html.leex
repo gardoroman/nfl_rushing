@@ -1,8 +1,5 @@
 <h1>NFL Rushing Stats</h1>
 
-
-
-
 <form phx-change="filter-by-player">
   <label class="">Filter:</label>
   <select name="player">
@@ -15,7 +12,9 @@
   </select>
 </form>
 
-<table>
+<button id="download-btn" phx-hook="DownloadCSV">Download</button>
+
+<table id="stats-table">
   <thead>
     <tr>
       <th>Player</th>
