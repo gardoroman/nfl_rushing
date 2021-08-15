@@ -1,11 +1,11 @@
 <!--  -->
 <div class="">
-  <div class="mb-8  mx-auto w-10/12 text-white">
+  <div class="mb-8  mx-auto w-10/12 ">
     <div class="flex flex-col md:flex-row">
-      <form class="text-2xl mr-4 pt-4" phx-change="filter-by-player">
-        <label >Filter By Player:</label>
+      <form class=" text-2xl mr-4 pt-4" phx-change="filter-by-player">
+        <label class="text-white mr-2">Filter By Player:</label>
         <select name="player">
-            <option class="text-green" selected value="reset">All Players</option>
+            <option class="text-black" selected value="reset">All Players</option>
             <%= for player <- @players do %>
                 <option value="<%= player %>">
                 <%= player %>
@@ -14,7 +14,7 @@
         </select>
       </form>
 
-      <button id="download-btn" phx-hook="DownloadCSV" class="p-4 border border-pink-700 rounded-lg">Download</button>
+      <button id="download-btn" phx-hook="DownloadCSV" class="p-4 text-2l text-white border bg-pink-700 border-pink-700 rounded-lg">Download</button>
     </div>
   </div>
   <div>
