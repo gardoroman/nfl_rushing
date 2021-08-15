@@ -54,4 +54,34 @@ We will evaluate you on your ability to solve the problem defined in the require
 If you have any questions regarding requirements, do not hesitate to email your contact at theScore for clarification.
 
 ### Installation and running this solution
-... TODO
+This app was created using Elixir, Phoenix, LiveView, and JavaScript.
+
+
+### Requirements
+The app was developed using Node version 16.
+
+### Starting the Application
+To start your Phoenix server:
+
+  * Install dependencies with `mix deps.get`
+  * Install Node.js dependencies with `npm install` inside the `assets` directory
+  * Start Phoenix endpoint with `mix phx.server`
+
+Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+
+### Running the Application
+
+#### Filtering
+The `Filter By Player` select, allows the user to filter records by the player selected.  
+Selecting `All Players` will show all the players once again.
+
+#### Sorting
+Clicking the headers of the `Yds`, `TD`, and `Lng` columns will sort the table by the values in those columns.  
+Clicking on the same column again will reverse the sort order, e.g. go from ascending to descending and vice versa.
+
+#### Downloading
+Clicking the `Download` button will download the records displayed to the computer in CSV format.
+
+#### TODO
+Add a visual cue to determine which column was selected for sorting and in what direction.
+
