@@ -54,7 +54,7 @@ We will evaluate you on your ability to solve the problem defined in the require
 If you have any questions regarding requirements, do not hesitate to email your contact at theScore for clarification.
 
 ### Installation and running this solution
-This app was created using Elixir, Phoenix, LiveView, and JavaScript.
+This app was created using Elixir, Phoenix, LiveView, PostgreSql and JavaScript.
 
 
 ### Requirements
@@ -65,6 +65,7 @@ To start your Phoenix server:
 
   * Install dependencies with `mix deps.get`
   * Install Node.js dependencies with `npm install` inside the `assets` directory
+  * At the root directory, type `mix ecto.setup` to create the database and seed the table.
   * Start Phoenix endpoint with `mix phx.server`
 
 Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
